@@ -4,14 +4,14 @@ import "math/rand"
 
 var runes = []rune("abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVXYZ123456789")
 
-const lenght = 32
+const n = 32
 
 // Get returns a pseudorandom string of length 32
 func Get() string {
-	result := make([]rune, lenght)
+	result := make([]rune, n)
 
-	for index := 0; index < lenght; index++ {
-		result[index] = runes[rand.Intn(len(runes))]
+	for i := 0; i < n; i++ {
+		result[i] = runes[rand.Intn(len(runes))]
 	}
 
 	return string(result)
