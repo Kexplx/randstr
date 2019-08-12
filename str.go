@@ -2,11 +2,11 @@ package randstr
 
 import "math/rand"
 
-var runes = []rune("abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVXYZ123456789")
+var runes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
 const n = 32
 
-// Get returns a pseudorandom string of length 32
+// Get returns a pseudorandom string of length 32 from [a-zA-Z0-9]
 func Get() string {
 	result := make([]rune, n)
 
