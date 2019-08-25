@@ -1,7 +1,6 @@
 package randstr
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -14,10 +13,11 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-// Get returns a pseudorandom string of length 32 from [a-zA-Z0-9]
-func Get(n int) (string, error) {
-	if n <= 0 {
-		return "", fmt.Errorf("%d is not a valid length", n)
+// Get returns a pseudorandom string of max length n = 500
+// Letter Range [a-zA-Z0-9]
+func Get(n int) string {
+	if n <= 0 || n > 500 {
+		return ""
 	}
 
 	result := make([]rune, n)
@@ -26,5 +26,5 @@ func Get(n int) (string, error) {
 		result[i] = runes[rand.Intn((len(runes)))]
 	}
 
-	return string(result), nil
+	return string(result)
 }

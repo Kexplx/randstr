@@ -1,28 +1,28 @@
 package randstr
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 
 func TestRandString(t *testing.T) {
-	n := 10
-	result, err := Get(n)
-
-	if err != nil {
-		t.Errorf("Correct input %d gave error %v", n, err)
+	n := math.MaxInt64
+	if len(Get(n)) != 0 {
+		t.Errorf("Wrong length: n = math.MaxInt64")
 	}
 
-	if len(result) != n {
-		t.Error("Result string had wrong length")
+	n = 1
+	if len(Get(n)) != n {
+		t.Errorf("Wrong length: n = 1")
 	}
 
 	n = 0
-	_, err = Get(n)
-	if err == nil {
-		t.Errorf("Input %d didn't produce error", n)
+	if len(Get(n)) != 0 {
+		t.Errorf("Wrong length: n = 0")
 	}
 
-	n = -1
-	_, err = Get(n)
-	if err == nil {
-		t.Errorf("Input %d didn't produce error", n)
+	n = math.MinInt64
+	if len(Get(n)) != 0 {
+		t.Errorf("Wrong length: n = math.MinInt64")
 	}
 }
