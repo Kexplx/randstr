@@ -13,7 +13,7 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-// Get returns a pseudorandom string of max length n = 500
+// Get returns a pseudorandom string with n = (0 - 500) characters
 // Letter Range [a-zA-Z0-9]
 func Get(n int) string {
 	if n <= 0 || n > 500 {
